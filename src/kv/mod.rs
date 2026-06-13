@@ -1,2 +1,2 @@
 pub mod command;
-mod store;
+pub mod store;
