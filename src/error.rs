@@ -12,16 +12,16 @@ pub enum KvraftError {
     Bincode(#[from] bincode::Error),
 
     // Temporarily disabled until `prost` is added to dependencies.
-    // #[error("protobuf encode error: {0}")]
-    // ProstEncode(#[from] prost::EncodeError),
+    #[error("protobuf encode error: {0}")]
+    ProstEncode(#[from] prost::EncodeError),
 
     // Temporarily disabled until `prost` is added to dependencies.
-    // #[error("protobuf decode error: {0}")]
-    // ProstDecode(#[from] prost::DecodeError),
+    #[error("protobuf decode error: {0}")]
+    ProstDecode(#[from] prost::DecodeError),
 
     // Temporarily disabled until the `rpc` module exists in the crate root.
-    // #[error("rpc error: {0}")]
-    // Rpc(#[from] crate::rpc::error::RpcError),
+    #[error("rpc error: {0}")]
+    Rpc(#[from] crate::rpc::error::RpcError),
 
     #[error("invalid operation: {0}")]
     InvalidOperation(String),
